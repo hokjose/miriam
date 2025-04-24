@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: jhm-registry-servicio
+  profiles:
+    active: development
+  config:
+    import: optional:configserver:http://jose:miriam@localhost:7070

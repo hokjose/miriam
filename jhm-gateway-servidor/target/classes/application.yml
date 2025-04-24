@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: jhm-gateway-servidor
+  profiles:
+    active: development
+  config:
+    import: optional:configserver:http://jose:miriam@localhost:7070
+server:
+  port: 8081

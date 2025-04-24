@@ -1,0 +1,29 @@
+server:
+  port: 8085
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8090/eureka
+  instance:
+    hostname: localhost
+
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enable: true
+      routes:
+        - id: jhm-catalogo-service
+          uri: lb://jhm-catalogo-service
+          predicates:
+            - Path=/categorias/**
+        - id: jhm-productos-service
+          uri: lb://jhm-productos-service
+          predicates:
+            - Path=/productos/**
+        - id: jhm-usuarios-service
+          uri: lb://jhm-usuarios-service
+          predicates:
+            - Path=/usuarios/**
